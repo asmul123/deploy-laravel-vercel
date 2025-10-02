@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biodata Siswa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #c187f8, #000000);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+
+      /* Animasi masuk smooth */
+      opacity: 0;
+      filter: blur(8px);
+      animation: fadeInSmooth 1.6s ease forwards;
+    }
+    @keyframes fadeInSmooth {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    /* animasi bola, console, anime */
+    .floating-icon {
+      position: absolute;
+      width: 60px;
+      opacity: 0.25;
+      animation: float 12s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-120vh) rotate(360deg); }
+    }
+
+    .biodata-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      z-index: 10;
+    }
+    .biodata-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    }
+
+    .biodata-header {
+      background: linear-gradient(90deg, #8e2de2, #000000);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 6px rgb(255,255,255);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .biodata-header img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .biodata-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px; /* sudut lebih lembut */
+      padding: 5px; /* ruang untuk border gradasi */
+      background: linear-gradient(135deg, #edd9ff, #9c6aff, #000000); /* gradasi border */
+      box-shadow: 0 0 15px rgba(142, 45, 226, 0.6); /* efek glow ungu */
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .biodata-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    .list-group-item {
+      border: none;
+      padding-left: 0;
+      font-size: 16px;
+    }
+    h4 { font-weight: 600; }
+
+    .skills-section {
+      background: #f8f9fa;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover { transform: translateX(6px); }
+    .skill-item img {
+      width: 24px; height: 24px;
+      margin-right: 8px;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .social-links a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    .social-links a:hover { transform: scale(1.1); }
+    .social-links .bi-instagram { color: #E1306C; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating background icons -->
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" class="floating-icon" style="left:10%; animation-delay:0s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/3616/3616895.png" class="floating-icon" style="left:40%; animation-delay:3s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" class="floating-icon" style="left:70%; animation-delay:6s;">
+
+  <div class="biodata-card">
+    <div class="biodata-header">
+      <!-- Logo GitHub putih di kiri -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+           alt="GitHub Logo" 
+           style="height:40px; filter: invert(1) drop-shadow(0 0 8px #ffffff);">
+
+      <h2 class="m-0"><i class="bi bi-person-circle"></i> Biodata Siswa</h2>
+  
+      
+<img src="IMG/console-removebg-preview.png" 
+     alt="Stick PlayStation" 
+     style="height:40px; filter: drop-shadow(0 0 6px #ffffff);">
+
+    </div>
+
+    <div class="card-body text-center">
+      <img src="IMG/PP.jpeg" class="biodata-photo mb-3" alt="Foto Siswa">
+      <h4 class="mb-4">Raya Fathan N.</h4>
+      <ul class="list-group list-group-flush text-start px-4">
+        <li class="list-group-item"><strong>Nama Lengkap:</strong> Raya Fathan Nurrachmat</li>
+        <li class="list-group-item"><strong>Sekolah:</strong> SMKN 1 GARUT</li>
+        <li class="list-group-item"><strong>Kelas:</strong> XI PPL 2</li>
+        <li class="list-group-item"><strong>TTL:</strong> Garut, 22 Desember 2008</li>
+        <li class="list-group-item"><strong>Alamat:</strong> Jl. Cimanuk Sanding Gg. Burung Bao Rt 04 Rw 05</li>
+        <li class="list-group-item"><strong>Hobi:</strong> Game, Sepak Bola, Menonton Anime</li>
+      </ul>
+    </div>
+
+    <div class="skills-section">
+      <h5 class="mb-3"><i class="bi bi-code-slash"></i> Bahasa Pemrograman yang Saya Pelajari</h5>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"> HTML</div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"> CSS</div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"> JavaScript</div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"> Bootstrap</div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"> Laravel</div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"> Flutter</div>
+
+      <div class="social-links">
+  <a href="https://github.com/rayy73" target="_blank">
+    <i class="bi bi-github" style="font-size:1.5rem;"></i>
+  </a>
+  <a href="https://instagram.com/r4yy_73" target="_blank">
+    <i class="bi bi-instagram" style="font-size:1.5rem;"></i>
+  </a>
+  <a href="https://wa.me/087825390810" target="_blank">
+    <i class="bi bi-whatsapp" style="font-size:1.5rem; color:#25D366;"></i>
+  </a>
+</div>
+
+
+    <div class="card-footer text-center bg-light">
+      <small class="text-muted">© 2025 r4yy</small>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

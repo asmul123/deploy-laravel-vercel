@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Biodata Sheira</title>
+  <style>
+    :root{
+  --blue-900: #0D47A1;   
+  --blue-700: #1976D2;   
+  --blue-500: #42A5F5;   
+  --blue-300: #BBDEFB;   
+  --cream: #E3F2FD;    
+  --card-shadow: 0 6px 18px rgba(13,71,161,0.15);
+  --radius: 14px;
+  --max-width: 1000px;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--blue-900);
+}
+
+    *{box-sizing: border-box; margin:0; padding:0}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, var(--cream), #fff 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:20px;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:linear-gradient(180deg, rgba(255,248,225,0.95), rgba(255,255,255,0.98));
+      border-radius:var(--radius);
+      box-shadow:var(--card-shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      transition: all .3s ease-in-out;
+    }
+
+    /* left panel */
+    .profile{
+      background: linear-gradient(180deg, var(--brown-700), var(--brown-500));
+      color: rgb(0, 0, 0);
+      padding:36px 28px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+    }
+
+    .avatar{
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      overflow:hidden;
+      border:6px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      transition: transform .3s ease;
+    }
+    .avatar:hover{ transform: scale(1.05); }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
+
+    .name{
+      font-size:22px;
+      font-weight:700;
+      text-align:center;
+    }
+    .title{
+      font-size:14px;
+      opacity:0.9;
+      margin-top:-4px;
+      text-align:center;
+      font-style: italic;
+    }
+
+    .contact{
+      width:100%;
+      margin-top:8px;
+    }
+    .contact a{
+      display:block;
+      text-decoration:none;
+      color:rgba(0, 0, 0, 0.95);
+      padding:10px 12px;
+      border-radius:10px;
+      background: rgba(255,255,255,0.08);
+      margin:6px 0;
+      font-size:14px;
+      transition: background .3s;
+    }
+    .contact a:hover{
+      background: rgba(255,255,255,0.18);
+    }
+
+    .left-footer{
+      margin-top:auto;
+      width:100%;
+      text-align:center;
+      font-size:12px;
+      opacity:0.85;
+    }
+
+    /* right panel */
+    .details{
+      padding:30px 34px;
+      background: white;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .section h3{
+      margin-bottom:10px;
+      font-size:16px;
+      color:var(--brown-900);
+      border-bottom:2px solid var(--brown-300);
+      display:inline-block;
+      padding-bottom:4px;
+    }
+
+    .about{
+      line-height:1.6;
+      color:#3b2b27;
+      font-size:15px;
+      text-align:justify;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap:12px;
+    }
+
+    .chip{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--brown-300);
+      color:var(--brown-900);
+      font-size:13px;
+      margin:6px 6px 0 0;
+      transition: all .3s ease;
+      cursor:default;
+    }
+    .chip:hover{
+      background: var(--brown-500);
+      color:white;
+    }
+
+    .meta{
+      font-size:14px;
+      color:#4b352f;
+    }
+
+   .details{
+  padding:30px 34px;
+  background: white;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08); /* ✨ shadow pada kotak biodata */
+  border-radius: var(--radius);
+}
+
+.education-item{
+  padding:12px 14px;
+  border-radius:10px;
+  background: linear-gradient(180deg, #fff, var(--brown-300));
+  border:1px solid rgba(161,136,127,0.18);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* ✨ shadow di item sekolah & kelas */
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.education-item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18); /* shadow lebih jelas saat hover */
+}
+
+
+    /* Responsive */
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;}
+      .profile{flex-direction:row; padding:18px; gap:14px; align-items:center; justify-content:flex-start}
+      .avatar{width:90px;height:90px}
+      .name{font-size:18px}
+      .details{padding:20px}
+    }
+
+    @media (max-width:500px){
+      .profile{flex-direction:column; text-align:center;}
+      .contact a{font-size:13px; padding:8px}
+    }
+
+    /* print friendly */
+    @media print{
+      body{background:white}
+      .container{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+
+    <aside class="profile" aria-label="Profil">
+      <div class="avatar">  
+        <img src="src/cc.jpeg" alt="Foto Profil">
+      </div>
+      <div style="text-align:center; width:100%;">
+        <div class="name">Sheira Fitria</div>
+        <div class="title">Pelajar</div>
+
+        <div class="contact" style="margin-top:12px;">
+          <a href="mailto:sheirafitria45@gmail.com" aria-label="Email">📧 sheirafitria45@gmail.com</a>
+        </div>
+      </div>
+      <div class="left-footer">Biodata Sheira</div>
+    </aside>
+
+    <section class="details" aria-label="Detail biodata">
+
+      <div class="section">
+        <h3>Tentang Saya</h3>
+        <p class="about">Halo! Saya <strong>Sheira</strong>. Saya bersemangat dalam belajar hal baru, terutama di bidang teknologi dan pengembangan diri. Memiliki kepribadian terbuka, mudah beradaptasi, serta senang bekerja sama dalam tim. Saya berfokus untuk terus mengasah keterampilan, meningkatkan produktivitas, dan memberikan kontribusi terbaik dalam setiap kesempatan.</p>
+      </div>
+
+      <div class="section">
+        <h3>Minat & Hobi</h3>
+        <div class="grid-2">
+          <div>
+            <span class="chip">Menggambar</span>
+            <span class="chip">Coding</span>
+            <span class="chip">Editing Video</span>
+          </div>
+          <div>
+            <span class="chip">Fotografi Alam</span>
+            <span class="chip">Menonton Film</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Asal Sekolah</h3>
+        <div class="education-item">
+          <div style="font-weight:700">SMKN 1 Garut</div>
+          <div class="meta">2024/2025</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Kelas</h3>
+        <div class="education-item">
+          <div style="font-weight:700">XI - RPL 2</div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</body>
+</html>
